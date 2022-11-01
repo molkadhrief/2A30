@@ -9,7 +9,13 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->lineEdit_ID_ajout->setValidator(new QIntValidator(0,9999999,this));
-ui->tablebillet->setModel(B.afficher());
+    ui->lineEdit_ID_recherche->setValidator(new QIntValidator(0,9999999,this));
+    ui->lineEdit_ID_supp->setValidator(new QIntValidator(0,9999999,this));
+    ui->lineEdit_destination_ajout->setInputMask("AAAAAAAAAAAAAAAAAA");
+    ui->lineEdit_destination_mod->setInputMask("AAAAAAAAAAAAAAAAAAAAA");
+    ui->lineEdit_classe_mod->setInputMask("AAAAAAAAAAAAAAAA");
+    ui->lineEdit_classe_mod->setInputMask("AAAAAAAAAAAAA");
+ui->tablebillet->setModel(etmp.afficher());
 }
 
 MainWindow::~MainWindow()
@@ -40,17 +46,20 @@ void MainWindow::on_pushButton_valider_ajout_clicked()
 //bouton supprimer
 void MainWindow::on_pushButton_valider_supp_clicked()
 {
-Billet B;
-QString ID_B(ui->lineEdit_ID_supp->text());
-bool test=B.supprimer(ID_B);
-QMessageBox msgBox;
+QString ID_B=(ui->lineEdit_ID_supp->text());
+bool test=etmp.supprimer(ID_B);
 if (test)
-   { ui->tablebillet->setModel(B.afficher());
-    msgBox.setText("Suppression avec succes");
-
+   { ui->tablebillet->setModel(etmp.afficher());
+    QMessageBox::information(nullptr, QObject::tr("Ok"),
+                 QObject::tr("Suppression effectué.\n"
+                             "Click Cancel to exit."), QMessageBox::Cancel);
 }else
-    msgBox.setText("Echec de suppression");
-msgBox.exec();
+
+  {
+    QMessageBox::critical(nullptr, QObject::tr("Ok"),
+                 QObject::tr("Suppression non effectué.\n"
+                             "Click Cancel to exit."), QMessageBox::Cancel);
+}
 }
 
 
@@ -108,4 +117,26 @@ void MainWindow::on_pushButton_annuler_supp_clicked()
 void MainWindow::on_pushButton_annuler_mod_clicked()
 {
     ui->stackedWidget->setCurrentIndex(2);
+}
+
+void MainWindow::on_pushButton_valider_mod_clicked()
+{
+    QString ID_B=ui->lineEdit_ID_recherche->text();
+    QDate DATE_DEP_B=ui->dateEdit_DATE_DEP_B->date();
+    QDate DATE_AR_B=ui->dateEdit_DATE_AR_B->date();
+    QString DESTINATION=ui->lineEdit_destination_mod->text();
+    QString CLASSE=ui->lineEdit_classe_mod->text();
+
+    Billet B(ID_B,DATE_DEP_B,DATE_AR_B,DESTINATION,CLASSE);
+
+
+    bool test=B.modifier();
+    if (test)
+    { ui->tablebillet->setModel(etmp.afficher());
+    QMessageBox::information(nullptr,QObject::tr("ok"),QObject::tr("Modification effectue\n ""click cancel"),QMessageBox::Cancel);
+
+    }
+    else
+    {QMessageBox::critical(nullptr,QObject::tr("not ok"),QObject::tr("Modification non fonctional\n""click to cancel"),QMessageBox::Cancel);}
+
 }

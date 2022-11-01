@@ -42,8 +42,12 @@ private slots:
 
     void on_pushButton_annuler_mod_clicked();
 
+    void on_pushButton_a_clicked();
+
+    void on_pushButton_valider_mod_clicked();
+
 private:
     Ui::MainWindow *ui;
-    Billet B;
+    Billet etmp;
 };
 #endif // MAINWINDOW_H

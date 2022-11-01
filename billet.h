@@ -24,6 +24,7 @@ public:
     bool ajouter();
     QSqlQueryModel* afficher();
     bool supprimer(QString);
+    bool modifier();
 private:
     QString ID_B,DESTINATION,CLASSE;
     QDate DATE_DEP_B,DATE_AR_B;

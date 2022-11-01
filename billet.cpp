@@ -49,8 +49,28 @@ QSqlQueryModel* Billet::afficher()
 bool Billet::supprimer(QString ID_B)
 {
     QSqlQuery query;
-    query.prepare("DELETE FROM BILLETS where ID_B= :ID_B)");
+    query.prepare("DELETE FROM BILLETS where ID_B= :ID_B");
     query.bindValue(0, ID_B);
 
     return query.exec();
 }
+
+bool Billet::modifier()
+{
+    QSqlQuery query;
+
+
+        query.prepare("UPDATE BILLETS set ID_B=:ID_B,DATE_DEP_B=:DATE_DEP_B,DATE_AR_B=:DATE_AR_B,DESTINATION=:DESTINATION,CLASSE=:CLASSE WHERE ID_B=:ID_B");
+
+
+
+        query.bindValue(":ID_B", ID_B);
+        query.bindValue(":DATE_DEP_B",DATE_DEP_B);
+        query.bindValue(":DATE_AR_B", DATE_AR_B);
+        query.bindValue(":DESTINATION", DESTINATION);
+        query.bindValue(":CLASSE", CLASSE);
+          return query.exec();
+
+
+    }
+

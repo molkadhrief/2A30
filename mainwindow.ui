@@ -23,6 +23,9 @@
       <height>700</height>
      </rect>
     </property>
+    <property name="currentIndex">
+     <number>5</number>
+    </property>
     <widget class="QWidget" name="index">
      <widget class="QLabel" name="label">
       <property name="geometry">
@@ -1519,40 +1522,6 @@ QPushButton::pressed{
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-style:italic; text-decoration: underline; color:#00007f;&quot;&gt;Modifier un billet&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_datedep_mod">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>240</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_63">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>180</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>8514oem</family>
-        <pointsize>12</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Id Billet :</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_67">
       <property name="geometry">
        <rect>
@@ -1701,16 +1670,6 @@ QPushButton::pressed{
        <string>Valider</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_datear_mod">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>300</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_annuler_mod">
       <property name="geometry">
        <rect>
@@ -1767,16 +1726,6 @@ QPushButton::pressed{
        <string>Id Billet :</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_ID_mod">
-      <property name="geometry">
-       <rect>
-        <x>550</x>
-        <y>180</y>
-        <width>141</width>
-        <height>22</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_39">
       <property name="geometry">
        <rect>
@@ -1814,22 +1763,6 @@ QPushButton::pressed{
        <rect>
         <x>100</x>
         <y>100</y>
-        <width>56</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">image: url(:/new/prefix1/images/icons8-fighter-jet-50.png);</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_42">
-      <property name="geometry">
-       <rect>
-        <x>330</x>
-        <y>180</y>
         <width>56</width>
         <height>21</height>
        </rect>
@@ -1903,6 +1836,26 @@ QPushButton::pressed{
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="dateEdit_DATE_DEP_B">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>250</y>
+        <width>110</width>
+        <height>22</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QDateEdit" name="dateEdit_DATE_AR_B">
+      <property name="geometry">
+       <rect>
+        <x>570</x>
+        <y>310</y>
+        <width>110</width>
+        <height>22</height>
+       </rect>
       </property>
      </widget>
     </widget>
