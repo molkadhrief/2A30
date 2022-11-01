@@ -16,6 +16,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lineEdit_cin->setValidator( new QIntValidator(0, 99999999, this));
+    ui->lineEdit_nom->setInputMask("AAAAAAAAAAAAAAAAAAAA");
+    ui->lineEdit_prenom->setInputMask("AAAAAAAAAAAAAAAAAA");
+    ui->lineEdit_poste->setInputMask("AAAAAAAAAAAAAAAAAA");
+    ui->lineEdit_adresse->setInputMask("AAAAAAAAAAAAAAAAAA");
+    ui->lineEdit_matricule->setInputMask("AAAAAAAAAAAAAAAAAA");
     ui->tableView_Employe->setModel (E.afficher());
 }
 
@@ -32,7 +37,9 @@ void MainWindow::on_pushButton_ajouter_clicked()
         QString POSTE=ui->lineEdit_poste->text();
         QString ADRESSE=ui->lineEdit_adresse->text();
         QString MATRICULE=ui->lineEdit_matricule->text();
+
         Employe E(CIN,NOM,PRENOM,POSTE,ADRESSE,MATRICULE);
+
         bool test=E.ajouter();
         if (test)
         {
@@ -50,8 +57,8 @@ void MainWindow::on_pushButton_ajouter_clicked()
 void MainWindow::on_pushButton_SUPP_clicked()
 {
     Employe E;
-       E.setmatricule(ui->lineEdit_matriculeS->text());
-        bool test=E.supprimer(E.getmatricule());
+       int cin=ui->lineEdit_cinS->text().toInt();
+        bool test=E.supprimer(cin);
         if(test)
         {
                 QMessageBox::information(nullptr, QObject::tr("Ok"),
@@ -63,4 +70,30 @@ void MainWindow::on_pushButton_SUPP_clicked()
                 QMessageBox::critical(nullptr, QObject::tr("Not Ok"),
                                       QObject::tr("Suppression non effectué.\n" "Click Cancel to exit."), QMessageBox::Cancel);
             }
+}
+
+
+
+void MainWindow::on_pushButton_mod1_clicked()
+{
+    int CIN=ui->lineEdit_modCIN->text().toInt();
+        QString NOM=ui->lineEdit_modNom->text();
+        QString PRENOM=ui->lineEdit_modPrenom->text();
+        QString POSTE=ui->lineEdit_modPoste->text();
+        QString ADRESSE=ui->lineEdit_modAdresse->text();
+        QString MATRICULE=ui->lineEdit_mod1->text();
+        Employe E(CIN,NOM,PRENOM,POSTE,ADRESSE,MATRICULE);
+
+        bool test=E.modifier();
+        if(test)
+        {
+            QMessageBox::information(nullptr, QObject::tr("Ok"),
+                                     QObject::tr("Modification effectuée.\n""Click Cancel to exit."), QMessageBox::Cancel);
+            ui->tableView_Employe->setModel(E.afficher());
+        }
+        else
+        {
+            QMessageBox::critical(nullptr, QObject::tr("Not Ok"),
+                                  QObject::tr("Modification non effectuée.\n""Click Cancel to exit."), QMessageBox::Cancel);
+        }
 }

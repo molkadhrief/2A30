@@ -9,7 +9,7 @@
 
 Employe::Employe()
 {
-CIN=0; NOM=" "; PRENOM=" "; POSTE=" "; ADRESSE=" "; MATRICULE=" ";
+CIN=0; NOM=" "; PRENOM=" "; POSTE=" "; ADRESSE=" "; MATRICULE="NULL";
 }
 Employe::Employe(int CIN,QString NOM,QString PRENOM,QString POSTE,QString ADRESSE,QString MATRICULE)
 {this->CIN=CIN; this->NOM=NOM; this->PRENOM=PRENOM; this->POSTE=POSTE; this->ADRESSE=ADRESSE; this->MATRICULE=MATRICULE;}
@@ -19,12 +19,14 @@ QString Employe::getprenom() {return PRENOM;}
 QString Employe::getposte() {return POSTE;}
 QString Employe::getadresse() {return ADRESSE;}
 QString Employe::getmatricule() {return MATRICULE;}
+
 void Employe::setcin(int CIN) {this->CIN=CIN;}
 void Employe::setnom(QString NOM) {this->NOM=NOM;}
 void Employe::setprenom(QString PRENOM) {this->PRENOM=PRENOM;}
 void Employe::setposte(QString POSTE) {this->POSTE=POSTE;}
 void Employe::setadresse(QString ADRESSE) {this->ADRESSE=ADRESSE;}
 void Employe::setmatricule(QString MATRICULE) {this->MATRICULE=MATRICULE;}
+
 bool Employe::ajouter()
 {
     QSqlQuery query;
@@ -38,15 +40,16 @@ bool Employe::ajouter()
     query.bindValue(":MATRICULE",MATRICULE);
     return query.exec();
 }
-bool Employe::supprimer(QString MATRICULE)
+
+bool Employe::supprimer(int CIN)
 {
     QSqlQuery query;
-             query.prepare("DELETE FROM EMPLOYE where MATRICULE= :MATRICULE");
-             query.bindValue(0, MATRICULE);
+             query.prepare("DELETE FROM EMPLOYE where CIN= :CIN");
+             query.bindValue(0, CIN);
         return query.exec();
 }
-QSqlQueryModel* Employe::afficher()
 
+QSqlQueryModel* Employe::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
     model->setQuery("SELECT* FROM EMPLOYE");
@@ -57,4 +60,18 @@ QSqlQueryModel* Employe::afficher()
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("ADRESSE"));
     model->setHeaderData(5, Qt::Horizontal, QObject::tr("MATRICULE"));
     return model;
+}
+
+bool Employe::modifier()
+{
+    QSqlQuery query;
+    QString id_string= QString::number(CIN);
+         query.prepare("UPDATE EMPLOYE SET  CIN=:CIN, NOM=:NOM, PRENOM=:PRENOM, POSTE=:POSTE, ADRESSE=:ADRESSE, MATRICULE=:MATRICULE WHERE CIN=:CIN");
+         query.bindValue(":CIN", CIN);
+         query.bindValue(":NOM", NOM);
+         query.bindValue(":PRENOM", PRENOM);
+         query.bindValue(":POSTE", POSTE);
+         query.bindValue(":ADRESSE", ADRESSE);
+         query.bindValue(":MATRICULE", MATRICULE);
+         return query.exec();
 }

@@ -25,7 +25,8 @@ public:
     void setmatricule(QString);
     bool ajouter();
     QSqlQueryModel* afficher();
-    bool supprimer(QString);
+    bool supprimer(int);
+    bool modifier();
 private:
     int CIN;
     QString NOM,PRENOM,POSTE,ADRESSE,MATRICULE;

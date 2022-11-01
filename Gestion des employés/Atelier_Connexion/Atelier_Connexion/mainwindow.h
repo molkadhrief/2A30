@@ -22,6 +22,8 @@ private slots:
 
     void on_pushButton_SUPP_clicked();
 
+    void on_pushButton_mod1_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe E;
