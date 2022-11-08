@@ -1,21 +1,30 @@
 #ifndef BILLET_H
 #define BILLET_H
 #include <QString>
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QDoubleValidator>
+#include <QtDebug>
+#include <QTableView>
+#include <QObject>
+#include <QMainWindow>
+#include <QDateTime>
+#include <QFile>
+#include <QMessageBox>
 #include <QDate>
-#include <QtSql/QSqlQueryModel>
 class Billet
 {
 public:
     Billet();
-    Billet(QString,QDate,QDate,QString,QString);
+    Billet(int,QDate,QDate,QString,QString);
 
-    QString getID_B();
+    int getID_B();
     QString getDESTINATION();
     QString getCLASSE();
     QDate getDATE_DEP_B();
     QDate getDATE_AR_B();
 
-    void setID_B(QString);
+    void setID_B(int);
     void setDESTINATION(QString);
     void setCLASSE(QString);
     void setDATE_DEP_B(QDate);
@@ -23,10 +32,15 @@ public:
 
     bool ajouter();
     QSqlQueryModel* afficher();
-    bool supprimer(QString);
+    bool supprimer(int);
     bool modifier();
+    QSqlQueryModel* afficher_id();
+    QSqlQueryModel* tri_id();
+    QSqlQueryModel* tri_classe();
+    QSqlQueryModel* chercher (QString rech);
 private:
-    QString ID_B,DESTINATION,CLASSE;
+    int ID_B;
+    QString DESTINATION,CLASSE;
     QDate DATE_DEP_B,DATE_AR_B;
 
 };

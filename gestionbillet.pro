@@ -1,5 +1,6 @@
-QT       += core gui
+QT       += core gui printsupport
 QT       += sql
+QT       +=serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -19,15 +20,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     billet.cpp \
     connection.cpp \
+    dialog_stats.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     billet.h \
     connection.h \
-    mainwindow.h
+    dialog_stats.h \
+    mainwindow.h \
+    qcustomplot.h
 
 FORMS += \
+    dialog_stats.ui \
     mainwindow.ui
 
 # Default rules for deployment.

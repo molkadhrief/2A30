@@ -16,9 +16,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_valider_ajout_clicked();
 
-    void on_pushButton_valider_supp_clicked();
+
+
 
     void on_pushButton_b_clicked();
 
@@ -34,17 +34,28 @@ private slots:
 
     void on_pushButton_annuler_login_clicked();
 
-    void on_pushButton_annuler_ajout_clicked();
-
-    void on_pushButton_annuler_aff_clicked();
-
-    void on_pushButton_annuler_supp_clicked();
-
-    void on_pushButton_annuler_mod_clicked();
-
     void on_pushButton_a_clicked();
 
-    void on_pushButton_valider_mod_clicked();
+
+    void on_AJOUTER_clicked();
+
+    void on_modifier_clicked();
+
+    void on_comboBox_currentIndexChanged(QString);
+
+    void on_SUPRIMER_clicked();
+
+    void on_pushButton_v_clicked();
+
+    void on_CHERCHER_textChanged(const QString &arg1);
+
+    void on_TRIE_ID_clicked();
+
+    void on_TRIE_CLASS_clicked();
+
+    void on_PDF_clicked();
+
+    void on_STAT_clicked();
 
 private:
     Ui::MainWindow *ui;
