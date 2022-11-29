@@ -4,8 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
-
+QT       += core gui sql axcontainer printsupport network serialport multimedia multimediawidgets charts
+QT +=printsupport
+QT +=serialport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Atelier_Connexion
@@ -25,23 +26,29 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-    az.cpp \
-    dialog.cpp \
+    arduino.cpp \
+    dialog_mailing.cpp \
+    dialog_stats.cpp \
     etudiant.cpp \
         main.cpp \
         mainwindow.cpp \
-    connection.cpp
+    connection.cpp \
+    qcustomplot.cpp \
+    smtp.cpp
 
 HEADERS += \
-    az.h \
-    dialog.h \
+    arduino.h \
+    dialog_mailing.h \
+    dialog_stats.h \
     etudiant.h \
         mainwindow.h \
-    connection.h
+    connection.h \
+    qcustomplot.h \
+    smtp.h
 
 FORMS += \
-        az.ui \
-        dialog.ui \
+        dialog_mailing.ui \
+        dialog_stats.ui \
         mainwindow.ui
 
 # Default rules for deployment.
