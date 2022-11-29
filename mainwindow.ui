@@ -942,45 +942,11 @@ border-radius: 10px;</string>
         </property>
        </widget>
       </widget>
-      <widget class="QPushButton" name="PDF">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>140</y>
-         <width>161</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Comic Sans MS</family>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-background-color: rgb(255, 213, 44);color :rgb(255, 255, 255);
-border-radius: 70px;
-}
-QPushButton:hover {
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(151, 255, 226) , stop:1 rgb(151, 255, 226));
-
-}
-QPushButton::pressed{
-	background-color:rgb(255, 170, 255);
-}</string>
-       </property>
-       <property name="text">
-        <string>PDF</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="STAT">
        <property name="geometry">
         <rect>
-         <x>50</x>
-         <y>190</y>
+         <x>40</x>
+         <y>160</y>
          <width>161</width>
          <height>31</height>
         </rect>
@@ -1077,6 +1043,152 @@ QPushButton::pressed{
       </property>
       <property name="text">
        <string>TRIE PAR CLASSE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="excel">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>120</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Comic Sans MS</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-color: rgb(255, 213, 44);color :rgb(255, 255, 255);
+border-radius: 70px;
+}
+QPushButton:hover {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(151, 255, 226) , stop:1 rgb(151, 255, 226));
+
+}
+QPushButton::pressed{
+	background-color:rgb(255, 170, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string>EXCEL</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="qr_code">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>180</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Comic Sans MS</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-color: rgb(255, 213, 44);color :rgb(255, 255, 255);
+border-radius: 70px;
+}
+QPushButton:hover {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(151, 255, 226) , stop:1 rgb(151, 255, 226));
+
+}
+QPushButton::pressed{
+	background-color:rgb(255, 170, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string>QR CODE</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lbl_image_2">
+      <property name="geometry">
+       <rect>
+        <x>975</x>
+        <y>245</y>
+        <width>151</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>240</y>
+        <width>181</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 2px solid rgba(199, 153, 207, 200);
+background: rgba(199, 153, 207, 100); 
+border-radius: 10px;</string>
+      </property>
+      <property name="title">
+       <string>PDF</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+      <widget class="QComboBox" name="comboBox_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>40</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="arduino">
+      <property name="geometry">
+       <rect>
+        <x>970</x>
+        <y>60</y>
+        <width>161</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Comic Sans MS</family>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+background-color: rgb(255, 213, 44);color :rgb(255, 255, 255);
+border-radius: 70px;
+}
+QPushButton:hover {
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb(151, 255, 226) , stop:1 rgb(151, 255, 226));
+
+}
+QPushButton::pressed{
+	background-color:rgb(255, 170, 255);
+}</string>
+      </property>
+      <property name="text">
+       <string>Arduino</string>
       </property>
      </widget>
     </widget>

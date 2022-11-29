@@ -21,7 +21,7 @@ void Dialog_stats::statistiques(QVector<double>* ticks,QVector<QString> *labels)
 {
     QSqlQuery qry;
     int i=0;
-    qry.exec("SELECT ID FROM BILLETS");
+    qry.exec("SELECT DESTINATION FROM BILLETS");
     while (qry.next())
     {
         QString ID = qry.value(0).toString();
@@ -65,7 +65,7 @@ void Dialog_stats::MakeStat()
     ui->plot->xAxis->setLabelColor(Qt::black);
 
     // Axe des ordonnées
-    ui->plot->yAxis->setRange(0,200);
+    ui->plot->yAxis->setRange(0,10);
     ui->plot->yAxis->setPadding(5);
     ui->plot->yAxis->setLabel("DESTINATION");
     ui->plot->yAxis->setBasePen(QPen(Qt::black));
@@ -79,7 +79,7 @@ void Dialog_stats::MakeStat()
 
     // Ajout des données (statistiques de la quantite)
     QVector<double> PlaceData;
-    QSqlQuery q1("SELECT DESTINATION FROM BILLETS");
+    QSqlQuery q1("SELECT COUNT(*) FROM BILLETS");
     while (q1.next())
     {
         int  nbr_fautee = q1.value(0).toInt();

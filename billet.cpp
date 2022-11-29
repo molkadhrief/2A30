@@ -113,6 +113,13 @@ QSqlQueryModel* Billet ::afficher_id()
         model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_B"));
     return model;
 }
+QSqlQueryModel* Billet ::afficher_id2()
+{
+    QSqlQueryModel* model=new QSqlQueryModel();
+    model->setQuery("SELECT ID_B from BILLETS");
+    model->setHeaderData(0,Qt::Horizontal,QObject::tr("ID_B"));
+    return model;
+}
 QSqlQueryModel * Billet::tri_id()
 {
     QSqlQueryModel * model= new QSqlQueryModel();

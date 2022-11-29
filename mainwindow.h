@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 #include "billet.h"
+#include "arduino.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -34,9 +35,6 @@ private slots:
 
     void on_pushButton_annuler_login_clicked();
 
-    void on_pushButton_a_clicked();
-
-
     void on_AJOUTER_clicked();
 
     void on_modifier_clicked();
@@ -45,7 +43,6 @@ private slots:
 
     void on_SUPRIMER_clicked();
 
-    void on_pushButton_v_clicked();
 
     void on_CHERCHER_textChanged(const QString &arg1);
 
@@ -53,12 +50,27 @@ private slots:
 
     void on_TRIE_CLASS_clicked();
 
-    void on_PDF_clicked();
-
     void on_STAT_clicked();
+
+    void on_excel_clicked();
+
+    //void on_qr_code_clicked();
+
+
+
+    void on_comboBox_2_currentIndexChanged(QString);
+
+
+
+    void on_qr_code_clicked();
+
+    void on_arduino_clicked();
 
 private:
     Ui::MainWindow *ui;
     Billet etmp;
+    QByteArray data; // variable contenant les données reçues
+    int ret;
+    Arduino A; // objet temporaire
 };
 #endif // MAINWINDOW_H

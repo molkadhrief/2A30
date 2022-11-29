@@ -35,6 +35,7 @@ public:
     bool supprimer(int);
     bool modifier();
     QSqlQueryModel* afficher_id();
+    QSqlQueryModel* afficher_id2();
     QSqlQueryModel* tri_id();
     QSqlQueryModel* tri_classe();
     QSqlQueryModel* chercher (QString rech);
