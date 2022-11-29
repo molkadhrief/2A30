@@ -27,6 +27,12 @@ public:
     QSqlQueryModel* afficher ();
     bool supprimer(QString);
     bool modifier();
+   /* bool rechercher();*/
+    QSqlQueryModel* afficher_id();
+    QSqlQueryModel * recherche(QString);
+    QSqlQueryModel * trier();
+
+
 
 
 private:

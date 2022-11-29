@@ -3,8 +3,14 @@
 # Project created by QtCreator 2018-10-26T21:45:23
 #
 #-------------------------------------------------
-
+QT       += core gui serialport
 QT       += core gui sql
+
+QT       += network
+QT       += printsupport
+QT       += charts
+QT       +=multimedia
+QT       +=serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,14 +31,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    arduino.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    popup.cpp \
     vol.cpp
 
 HEADERS += \
+    arduino.h \
         mainwindow.h \
     connection.h \
+    popup.h \
     vol.h
 
 FORMS += \
